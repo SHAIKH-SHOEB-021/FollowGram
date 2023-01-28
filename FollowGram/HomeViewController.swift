@@ -12,6 +12,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet weak var homeTableView: UITableView!
+    var postNameArray = [String]()
+    var postIDArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +22,45 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(uploadBarFunc))
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        
+        getDataFromParse()
     }
+    
+    func getDataFromParse(){
+        let query = PFQuery(className: "posts")
+        query.findObjectsInBackground{ (objects, error) in
+            if error != nil{
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+                let okBTN = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okBTN)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                if objects != nil{
+                    self.postIDArray.removeAll(keepingCapacity: false)
+                    self.postNameArray.removeAll(keepingCapacity: false)
+                    for object in objects! {
+                        if let postName = object.object(forKey: "title") as? String{
+                            if let postID = object.objectId{
+                                self.postNameArray.append(postName)
+                                self.postIDArray.append(postID)
+                            }
+                        }
+                    }
+                    self.homeTableView.reloadData()
+                }
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return postNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let homeCell = UITableViewCell()
+//        homeCell.textLabel?.text = "Hello World"//postNameArray[indexPath.row]
+//        return homeCell
         let homeCell = homeTableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath)
-        homeCell.textLabel?.text = "Hello World"
+        homeCell.textLabel?.text = postNameArray[indexPath.row]
         return homeCell
     }
     

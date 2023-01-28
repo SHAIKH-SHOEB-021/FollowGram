@@ -18,21 +18,24 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         uploadImage.addGestureRecognizer(gestureRecognizer)
     }
+    
     //Upload Button Code Here
     @IBAction func uploadBTN(_ sender: Any) {
-        
-        let image = UIImage(named: "Kenny.png")
-        let imageData = image!.pngData()
-        let file = PFFileObject(name: "imageName.png", data: imageData!)
-        let object = PFObject(className: "posts")
-        object["image"] = file
-        object["title"] = titleTextField.text!
-        object.saveInBackground { (success, error) in
-            if success {
-                print("Image has been saved.")
-            } else {
-                print("Error: \(error?.localizedDescription ?? "")")
+        if titleTextField.text != "" {
+            let image = UIImage(named: "")
+            let imageData = image!.pngData()
+            let file = PFFileObject(name: "imageName.png", data: imageData!)
+            let object = PFObject(className: "posts")
+            object["image"] = file
+            object["title"] = titleTextField.text!
+            object.saveInBackground { (success, error) in
+                if success {
+                    print("Image has been saved.")
+                } else {
+                    print("Error: \(error?.localizedDescription ?? "")")
+                }
             }
+            
         }
         
         let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
