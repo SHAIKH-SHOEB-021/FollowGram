@@ -9,7 +9,7 @@ import UIKit
 import Parse
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var uploadImage: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
