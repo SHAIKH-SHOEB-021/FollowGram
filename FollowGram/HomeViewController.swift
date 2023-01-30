@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(uploadBarFunc))
         homeTableView.dataSource = self
         homeTableView.delegate = self
+        homeTableView.reloadData()
         getDataFromParse()
     }
     

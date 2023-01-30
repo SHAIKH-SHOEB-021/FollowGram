@@ -22,9 +22,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     //Upload Button Code Here
     @IBAction func uploadBTN(_ sender: Any) {
         if titleTextField.text != "" {
-            let image = UIImage(named: "")
-            let imageData = image!.pngData()
-            let file = PFFileObject(name: "imageName.png", data: imageData!)
+            let imageData = uploadImage.image?.jpegData(compressionQuality: 0.5)
+            let file = PFFileObject(name: "\(titleTextField!.text!).png", data: imageData!)
             let object = PFObject(className: "posts")
             object["image"] = file
             object["title"] = titleTextField.text!
