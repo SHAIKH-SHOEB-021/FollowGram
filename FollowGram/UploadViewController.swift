@@ -27,6 +27,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             let object = PFObject(className: "posts")
             object["image"] = file
             object["title"] = titleTextField.text!
+            object["username"] = PFUser.current()!.self as PFObject
             object.saveInBackground { (success, error) in
                 if success {
                     print("Image has been saved.")
