@@ -56,9 +56,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let homeCell = UITableViewCell()
-//        homeCell.textLabel?.text = "Hello World"//postNameArray[indexPath.row]
-//        return homeCell
         let homeCell = homeTableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath)
         homeCell.textLabel?.text = postNameArray[indexPath.row]
         return homeCell
