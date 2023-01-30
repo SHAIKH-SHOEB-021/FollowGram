@@ -20,9 +20,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain,target: self,action: #selector(logoutBarFunc))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(uploadBarFunc))
+        loadHomeTableView()
+        getDataFromParse()
+    }
+    
+    func loadHomeTableView(){
+        homeTableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
         homeTableView.dataSource = self
         homeTableView.delegate = self
-        getDataFromParse()
     }
     
     func getDataFromParse(){
@@ -38,9 +43,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.postIDArray.removeAll(keepingCapacity: false)
                     self.postNameArray.removeAll(keepingCapacity: false)
                     for object in objects! {
-                        if let postName = object.object(forKey: "title") as? String{
+                        if let postTitle = object.object(forKey: "title") as? String{
                             if let postID = object.objectId{
-                                self.postNameArray.append(postName)
+                                self.postNameArray.append(postTitle)
                                 self.postIDArray.append(postID)
                             }
                         }
@@ -56,9 +61,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let homeCell = homeTableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath)
-        homeCell.textLabel?.text = postNameArray[indexPath.row]
-        return homeCell
+        let homeTableCell = homeTableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+        homeTableCell.subtitleCell.text = postNameArray[indexPath.row]
+        return homeTableCell
     }
     
     @objc func logoutBarFunc(){

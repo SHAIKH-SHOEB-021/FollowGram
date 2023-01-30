@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4B678D07923372844C43E54B /* Pods_FollowGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1EBE1F59A0D767ED4825E70 /* Pods_FollowGram.framework */; };
+		A81A06E82987DB6700880493 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81A06E62987DB6700880493 /* HomeTableViewCell.swift */; };
+		A81A06E92987DB6700880493 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A81A06E72987DB6700880493 /* HomeTableViewCell.xib */; };
 		A837EB9F29813032001A9BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A837EB9E29813032001A9BAE /* AppDelegate.swift */; };
 		A837EBA129813032001A9BAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A837EBA029813032001A9BAE /* SceneDelegate.swift */; };
 		A837EBA329813032001A9BAE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A837EBA229813032001A9BAE /* SignInViewController.swift */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		424620DDB8749DDB1BBF03F1 /* Pods-FollowGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FollowGram.release.xcconfig"; path = "Target Support Files/Pods-FollowGram/Pods-FollowGram.release.xcconfig"; sourceTree = "<group>"; };
+		A81A06E62987DB6700880493 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A81A06E72987DB6700880493 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		A837EB9B29813032001A9BAE /* FollowGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A837EB9E29813032001A9BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A837EBA029813032001A9BAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,9 +96,11 @@
 				A837EBB22981425A001A9BAE /* SignUpViewController.swift */,
 				A83D233729838F9E0086198C /* HomeViewController.swift */,
 				A83D233B2983FA300086198C /* UploadViewController.swift */,
+				A81A06E62987DB6700880493 /* HomeTableViewCell.swift */,
+				A81A06E72987DB6700880493 /* HomeTableViewCell.xib */,
 				A837EBA429813032001A9BAE /* Main.storyboard */,
-				A837EBA729813034001A9BAE /* Assets.xcassets */,
 				A837EBA929813034001A9BAE /* LaunchScreen.storyboard */,
+				A837EBA729813034001A9BAE /* Assets.xcassets */,
 				A837EBAC29813034001A9BAE /* Info.plist */,
 			);
 			path = FollowGram;
@@ -162,6 +168,7 @@
 			files = (
 				A837EBAB29813034001A9BAE /* LaunchScreen.storyboard in Resources */,
 				A837EBA829813034001A9BAE /* Assets.xcassets in Resources */,
+				A81A06E92987DB6700880493 /* HomeTableViewCell.xib in Resources */,
 				A837EBA629813032001A9BAE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +224,7 @@
 			files = (
 				A83D233829838F9E0086198C /* HomeViewController.swift in Sources */,
 				A83D233C2983FA300086198C /* UploadViewController.swift in Sources */,
+				A81A06E82987DB6700880493 /* HomeTableViewCell.swift in Sources */,
 				A837EBA329813032001A9BAE /* SignInViewController.swift in Sources */,
 				A837EB9F29813032001A9BAE /* AppDelegate.swift in Sources */,
 				A837EBB32981425A001A9BAE /* SignUpViewController.swift in Sources */,
